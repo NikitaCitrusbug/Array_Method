@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array Method</title>
+    <style>
+      p {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript Array Methods</h1>
+    <p id="array"></p>
+    <p id="concat method"></p>
+    <p id="constructor method"></p>
+    <p id="copyWithin method"></p>
+    <p id="entries method"></p>
+    <p id="every method"></p>
+    <p id="fill method"></p>
+    <p id="filter method"></p>
+    <p id="find method"></p>
+    <p id="findIndex method"></p>
+    <p id="forEach method"></p>
+    <p id="Array.from method"></p>
+    <p id="includes method"></p>
+    <p id="indexOf method"></p>
+    <p id="isArray method"></p>
+    <p id="join method"></p>
+    <p id="keys method"></p>
+    <p id="lastIndexOf method"></p>
+    <p id="length method"></p>
+    <p id="map method"></p>
+    <p id="pop method"></p>
+    <p id="map uppercase method"></p>
+    <p id="prototype method"></p>
+    <p id="push method"></p>
+    <p id="reduce method"></p>
+    <p id="reduceRight method"></p>
+    <p id="reverse method"></p>
+    <p id="shift method"></p>
+    <p id="slice method"></p>
+    <p id="some method"></p>    
+    <p id="sort method"></p> 
+    <p id="splice method"></p> 
+    <p id="toString method"></p> 
+    <p id="unShift method"></p>
+    <p id="valueOf method"></p>
+
+  </body>
+  <script>
+    const language = ["Python", "JS", "Java"];
+    const a1 = ["ab", "cd", "de"];
+    const a2 = ["fg", "hi", "jk"];
+    const a3 = ["lm", "no", "pq"];
+    const fruits = ["apple", "banana", "cherry"];
+    const planets = ["earth", "mars", "jupiter", "mercury", "saturn", "venus"];
+    const fruit = ["Banana", "Orange", "Apple", "Mango"];
+    const f = fruit.entries();
+    const ages = [25, 26, 18, 19, 30];
+    const numbers = [1 ,11 , 111, 1111 , 11111]
+    const num = [35, 54, 32, 67, 90]
+    const no = [35, 54, 32, 67, 90]
+    const txt = "ABCDEFGH"
+    const inc = ['as' , 'pl' , 'as' , 'op' , 'as']
+    
+    document.getElementById("array").innerHTML = language;
+    document.getElementById("concat method").innerHTML = a2.concat(a1, a3);
+    document.getElementById("constructor method").innerHTML =
+      fruits.constructor;
+    // document.getElementById('copyWithin method').innerHTML = planets.copyWithin(3,0);
+    document.getElementById("copyWithin method").innerHTML = planets.copyWithin(2,0,3);
+    for (let x of f) {
+      document.getElementById("entries method").innerHTML += x + "<br>";
+    }
+    // let l = ""
+    // for (let x= 0 ;x < fruit.length ;x++)
+    // {
+    //     l +=fruit[x] + '<br>';
+    //     for(let l of f){
+    //         document.getElementById("entries method").innerHTML = l + "<br>";
+    //     }
+
+    // }
+    document.getElementById("every method").innerHTML = ages.every(checkAge);
+    function checkAge(age) {
+      return age > 20;
+    }
+    document.getElementById("fill method").innerHTML = numbers.fill(22 , 1, 4);
+    document.getElementById("filter method").innerHTML = num.filter(checkNum);
+    function checkNum(n) {
+      return n > 50;
+    }
+    document.getElementById("find method").innerHTML = no.find(checkNo);
+    function checkNo(n) {
+      return n > 50;
+    }
+    document.getElementById("findIndex method").innerHTML = no.findIndex(checkNo);
+    function checkNo(n) {
+      return n > 50;
+    }
+    text = ""
+    fruit.forEach(myFunction);
+
+    document.getElementById("forEach method").innerHTML = text;
+ 
+    function myFunction(item, index) {
+    text += index + ": " + item + "<br>"; 
+    }
+    document.getElementById("Array.from method").innerHTML = Array.from(txt);
+    document.getElementById("includes method").innerHTML = num.includes(32 , 3);
+    document.getElementById("indexOf method").innerHTML = num.indexOf(32);
+    document.getElementById("isArray method").innerHTML = Array.isArray(num);
+    document.getElementById("join method").innerHTML = fruits.join("  ");
+    const keys = num.keys();
+    blank = ""
+    for(let x of keys){
+        blank += x + "<br>"
+    }
+    document.getElementById("keys method").innerHTML = blank;
+    document.getElementById("lastIndexOf method").innerHTML = inc.lastIndexOf('as');
+    // document.getElementById("lastIndexOf method").innerHTML = num.lastIndexOf('as');
+    document.getElementById("length method").innerHTML = num.length;
+    // document.getElementById("length method").innerHTML = inc.length;
+    document.getElementById("map method").innerHTML = numbers.map(Math.sqrt);
+    document.getElementById("map method").innerHTML = numbers.map(myFun);
+    function myFun(num){
+        return num*10;
+    }
+    no.pop();
+    document.getElementById("pop method").innerHTML = no;
+    document.getElementById("map uppercase method").innerHTML = inc.map(inc => inc.toUpperCase());
+    Array.prototype.myUcase = function() {
+    for (let i = 0; i < this.length; i++) {
+    this[i] = this[i].toUpperCase();
+  }
+};
+    fruits.myUcase();
+    document.getElementById("prototype method").innerHTML = fruits;
+    fruits.push('KIWI')
+    document.getElementById("push method").innerHTML = fruits;
+    document.getElementById("reduce method").innerHTML = num.reduce(myFn);
+    function myFn(total,num){
+        return total + num
+    }
+    document.getElementById("reduceRight method").innerHTML = no.reduceRight(myFunction);
+    function myFunction(total,num){
+        return total - num
+    }
+    document.getElementById("reverse method").innerHTML = language.reverse();
+    language.shift();
+    document.getElementById("shift method").innerHTML = language;
+    document.getElementById("slice method").innerHTML = planets.slice(1,3);
+    document.getElementById("some method").innerHTML = ages.some(checkAge);
+    function checkAge(age) {
+      return age > 20;
+    }
+    document.getElementById("sort method").innerHTML = fruits.sort();
+    fruits.splice(2, 0, 'watermelon' , 'grapes');
+    document.getElementById("splice method").innerHTML = fruits;
+    document.getElementById("toString method").innerHTML = language.toString();
+    language.unshift("java" , "react");
+    document.getElementById("unShift method").innerHTML = language;
+    language.valueOf();
+    document.getElementById("valueOf method").innerHTML = language;
+  </script>
+</html>
